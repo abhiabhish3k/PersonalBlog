@@ -72,7 +72,7 @@ export default function StoryPage({ slug, navigate, previewMode = false, preview
   return (
     <div
       className="w-full min-h-screen transition-colors duration-300 pb-16 -mt-8 pt-8 -mx-5 sm:-mx-8 px-5 sm:px-8"
-      style={{ backgroundColor: themeInfo.bg }}
+      // style={{ backgroundColor: themeInfo.bg }}
     >
       <div className="max-w-[1120px] mx-auto flex flex-col gap-10">
         {/* Preview banner if in admin preview mode */}
