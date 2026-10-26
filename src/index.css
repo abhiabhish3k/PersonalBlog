@@ -1,0 +1,308 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg: #EEF1EA;
+    --ink: #1F2A24;
+    --muted: #4F5B53;
+    --card: #FFFFFF;
+    --butter: #F2C94C;
+    --butter-deep: #B88A00;
+    --sage: #CFE0D2;
+    --butter-soft: #F5E3A8;
+    --lavender: #D8D2EA;
+    --peach: #F2C9B8;
+    --midnight: #1F2A24;
+    --dark-panel: #34463B;
+    --line: #C3CCBE;
+    --field: #7E8C80;
+
+    --font-heading: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+    --font-reading: 'Newsreader', Georgia, serif;
+    --font-admin: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    font-family: var(--font-heading);
+    background-color: var(--bg);
+    color: var(--ink);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    font-size: 19px;
+    line-height: 1.6;
+  }
+
+  /* Keyboard focus ring */
+  *:focus-visible {
+    outline: 3px solid var(--butter-deep) !important;
+    outline-offset: 2px !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Custom Typography & Helper Classes */
+.font-bricolage {
+  font-family: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+}
+
+.font-newsreader {
+  font-family: 'Newsreader', Georgia, serif;
+}
+
+/* Button & Pill styles according to exact recipes */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  min-height: 44px;
+  font-family: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: var(--ink);
+  color: var(--bg);
+  transition: opacity 0.15s ease;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  opacity: 0.85;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  min-height: 44px;
+  font-family: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: transparent;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  transition: background-color 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  background-color: var(--ink);
+  color: var(--bg);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  min-height: 44px;
+  font-family: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: var(--butter);
+  color: var(--ink);
+  transition: opacity 0.15s ease;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+.btn-gold:hover {
+  opacity: 0.9;
+}
+
+/* Tag & Chip styles */
+.tag-butter {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 4px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: var(--butter);
+  color: var(--ink);
+  width: fit-content;
+}
+
+.chip-published {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: var(--sage);
+  color: var(--ink);
+}
+
+.chip-draft {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: var(--butter-soft);
+  color: var(--ink);
+}
+
+.chip-scheduled,
+.chip-unlisted {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: var(--lavender);
+  color: var(--ink);
+}
+
+/* Form input styling */
+.form-input {
+  height: 48px;
+  border-radius: 14px;
+  border: 1.5px solid var(--field);
+  background-color: #ffffff;
+  padding: 0 16px;
+  color: var(--ink);
+  font-size: 16px;
+  width: 100%;
+  transition: border-color 0.15s ease;
+}
+.form-input:focus {
+  border-color: var(--ink);
+}
+
+.form-textarea {
+  border-radius: 14px;
+  border: 1.5px solid var(--field);
+  background-color: #ffffff;
+  padding: 12px 16px;
+  color: var(--ink);
+  font-size: 16px;
+  width: 100%;
+  min-height: 110px;
+}
+.form-textarea:focus {
+  border-color: var(--ink);
+}
+
+/* Story Card Hover lift with soft shadow rgba(31,42,36,0.13) */
+.story-card-lift {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.story-card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px -6px rgba(31, 42, 36, 0.13);
+}
+
+/* Prose typography for rendered story content */
+.prose-abhi {
+  color: inherit;
+  font-size: 19px;
+  line-height: 1.65;
+}
+.prose-abhi p {
+  margin-bottom: 1.5em;
+}
+.prose-abhi h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+}
+.prose-abhi h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+}
+.prose-abhi blockquote {
+  background-color: var(--butter-soft);
+  border-radius: 24px;
+  padding: 24px 32px;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.4;
+  margin: 2em 0;
+  color: #1F2A24;
+}
+.prose-abhi pre, .prose-abhi code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+.prose-abhi pre {
+  background-color: #1F2A24;
+  color: #EEF1EA;
+  padding: 18px 24px;
+  border-radius: 16px;
+  overflow-x: auto;
+  font-size: 15px;
+  margin: 1.8em 0;
+}
+.prose-abhi :not(pre) > code {
+  background-color: rgba(31, 42, 36, 0.08);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+.prose-abhi ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+  margin: 1.2em 0;
+}
+.prose-abhi ol {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+  margin: 1.2em 0;
+}
+.prose-abhi li {
+  margin-bottom: 0.5em;
+}
+.prose-abhi a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-abhi img {
+  border-radius: 16px;
+  max-width: 100%;
+  height: auto;
+  margin: 2em auto;
+  display: block;
+}
+.prose-abhi hr {
+  border: none;
+  border-top: 1.5px solid var(--line);
+  margin: 2.5em 0;
+}
+
+/* Tiptap editor inner styling */
+.tiptap-editor .ProseMirror {
+  outline: none;
+  min-height: 480px;
+}
+.tiptap-editor .ProseMirror p.is-editor-empty:first-child::before {
+  content: "Tell your story...";
+  float: left;
+  color: #7E8C80;
+  pointer-events: none;
+  height: 0;
+}

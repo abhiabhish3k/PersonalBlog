@@ -1,0 +1,8 @@
+{
+  "name": "abhi.writes",
+  "description": "Slow thoughts for a fast internet. Personal blog and private admin panel by Abhi with rich editor, page themes, and custom styling.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
